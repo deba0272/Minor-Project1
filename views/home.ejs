@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Form</title>
+    <style>
+        #about {
+    padding: 100px;
+    border-radius: 0px;
+    margin-bottom: -1600px;
+}
+.hek{
+    font-size: large;
+ 
+}
+        body {
+            font-family: cursive;
+            font-size: larger;
+            background-color: #f7e8f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .navbar {
+            background-color: #f0eaf7;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: rgb(237, 159, 234);
+            text-align: center;
+            padding: 14px 25px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: rgb(161, 117, 226);
+        }
+
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: rgb(147, 77, 123);
+        }
+
+        .container {
+    background-color: #f9f2fc;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(8, 8, 8, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#contact {
+    padding: 200px;
+    border-radius: 20px;
+    margin-bottom: -1600px;
+  
+}
+
+.containerss{
+    max-width: 2000px;
+    margin: auto;
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin: auto;
+    
+
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 600%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.btn-submit {
+    width: 100%;
+}
+
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #imagePreview {
+            margin-bottom: 20px;
+            max-width: 100%;
+        }
+
+        .success-message {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+            display: none;
+        }
+        
+
+        button[type="submit"] {
+            background-color:#a5a1f6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #817afb;
+        }
+    </style>
+</head>
+<body>              
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="/" class="signout">Signout</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="container">
+        <h2>Upload Your Profile Image</h2>
+        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" id="profileImage" name="profileImage" accept="image/*" required/>
+            <img id="imagePreview" src="#" alt="Preview" style="display: none;"/>
+            <button type="submit">Upload</button>
+        </form>
+        <div id="successMessage" class="success-message">Uploaded successfully!</div>
+    </div>
+<div>
+</div>
+    <!-- Contact Section -->
+    <div id="contact" class="containerss">
+        <h2>Contact Us</h2>
+        <form action="/submit_contact_form" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="about" class="hek">
+        <h1>About</h1>
+        <p>Our journey began with a simple idea: to create a platform that makes uploading, storing, and sharing images effortless and enjoyable for everyone. Founded by a team of passionate individuals with a deep appreciation for photography and technology, has grown into a trusted online community for millions of users worldwide.
+            At the core of our mission is a commitment to user satisfaction and convenience. We understand that your images are precious memories, creative expressions, and professional assets, which is why we've designed our platform to offer seamless functionality and intuitive features. With our user-friendly interface, you can upload images in seconds, organize them with ease, and share them with friends, family, or clients effortlessly.</p>
+    </div>
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('profileImage').addEventListener('change', function() {
+            var file = this.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('imagePreview').style.display = 'block';
+                    document.getElementById('imagePreview').src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        const params = new URLSearchParams(window.location.search);
+    const status = params.get('status');
+
+    // Display message if status is success
+    if (status === 'success') {
+        alert('Email sent successfully!');
+    }
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('profileImage').value = '';
+                    setTimeout(function() {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 6000);
+                    //alert('Upload failed!');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
